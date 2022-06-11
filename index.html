@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Virtual Pet</title>
+        <link rel="stylesheet" type="text/css" href="styles.css">     
+    </head>
+    <body>
+        <div>
+            <header>
+                <h1>Virtual Pet</h1>
+            </header>
+            <main>
+                <script src="./src/pet.js">
+                </script>
+                <p id="createPet"></p>
+                <p id="growUp"></p>
+                <p id="walk"></p>
+                <p id="feed"></p>
+                <p id="happiness"></p>
+                <button onclick="createPet()">Create pet</button>
+                <button onclick="window.pet.growUp()">Grow up</button>
+                <button onclick="window.pet.checkUp()">Check up</button>
+                <button onclick="window.pet.feed()">Feed</button>
+                <button onclick="window.pet.walk()">Walk</button>
+                <button>Have baby</button>
+            </main>
+            <footer>
+                <span>2022 Lisa Heffernan</span>
+            </footer>
+        </div>
+    </body>
+</html>
