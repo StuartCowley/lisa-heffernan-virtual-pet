@@ -9,7 +9,8 @@ const hungerBreakPoint = 5;
 function createPet(){
     const pet = new Pet('Oscar');
     window.pet = pet;
-    document.getElementById("createPet").innerHTML = `Hello, my name is ${pet.name}! I am ${pet.age} years old.`;
+    document.getElementById("createPet").innerHTML = `Hello, my name is ${pet.name}!`;
+    document.getElementById("growUp").innerHTML = `I am ${pet.age} years old`;
 }
 
 function Pet(name) {
@@ -34,7 +35,6 @@ Pet.prototype.growUp = function() {
     this.hunger += 5;
     this.fitness -= 3;
     document.getElementById("growUp").innerHTML = `I am now ${this.age} years old.`;
-    // console.log("testing")
 };
 
 Pet.prototype.walk = function() {
@@ -45,7 +45,7 @@ Pet.prototype.walk = function() {
     if (this.fitness > maxFitness){
         this.fitness = maxFitness;
     }
-    document.getElementById("walk").innerHTML = `Thank you for walking me.`;
+    // document.getElementById("walk").innerHTML = `Thank you for walking me.`;
 }
 
 Pet.prototype.feed = function() {
@@ -56,30 +56,38 @@ Pet.prototype.feed = function() {
     if (this.hunger < minHunger){
         this.hunger = minHunger;
     }
-    document.getElementById("feed").innerHTML = `Thank you for feeding me.`;
+    // document.getElementById("feed").innerHTML = `Thank you for feeding me.`;
 }
 
 Pet.prototype.checkUp = function() {
     // document.getElementById("happiness").innerHTML = "test";
     if (!this.isAlive) {
-        document.getElementById("happiness").innerHTML = 'Your pet is no longer alive :(';
+        document.getElementById("growUp").innerHTML = 'Your pet is no longer alive :(';
         throw new Error('Your pet is no longer alive :(');
     }
     if (this.fitness <= fitnessBreakPoint && this.hunger >= hungerBreakPoint){
         // return 'I am hungry AND I need a walk'
-        document.getElementById("happiness").innerHTML = 'I am hungry AND I need a walk';
+        document.getElementById("hunger").innerHTML = 'I am hungry';
+        document.getElementById("fitness").innerHTML = `I need a walk`;
+        console.log("walk and feed")
     }
-    if(this.fitness <= fitnessBreakPoint){
+    else if (this.fitness <= fitnessBreakPoint){
         // return 'I need a walk';
-        document.getElementById("happiness").innerHTML = 'I need a walk';
+        document.getElementById("hunger").innerHTML = 'I am full';
+        document.getElementById("fitness").innerHTML = `I need a walk`;
+        console.log('walk')
     }
-    if (this.hunger >= hungerBreakPoint){
+    else if (this.hunger >= hungerBreakPoint){
         // return 'I am hungry';
-        document.getElementById("happiness").innerHTML = 'I am hungry';
+        document.getElementById("hunger").innerHTML = `I am hungry`;
+        document.getElementById("fitness").innerHTML = `I am healthy`;
+        console.log('feed')
     }
     else {
         // return 'I feel great!';
-        document.getElementById("happiness").innerHTML = 'I feel great';
+        document.getElementById("hunger").innerHTML = 'I am full';
+        document.getElementById("fitness").innerHTML = 'I am healthy';
+        console.log('all good')
     }
 }
 
