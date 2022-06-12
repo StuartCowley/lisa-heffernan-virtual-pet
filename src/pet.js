@@ -7,10 +7,12 @@ const fitnessBreakPoint = 3;
 const hungerBreakPoint = 5;
 
 function createPet(){
-    const pet = new Pet('Oscar');
+    let name;
+    const pet = new Pet(name = prompt("What shall we name your pet?", "name"));
     window.pet = pet;
     document.getElementById("createPet").innerHTML = `Hello, my name is ${pet.name}!`;
-    document.getElementById("growUp").innerHTML = `I am ${pet.age} years old`;
+    // document.getElementById("growUp").innerHTML = `I am ${pet.age} years old`;
+    document.getElementById("growUp").innerHTML = `${pet.age}`;
 }
 
 function Pet(name) {
@@ -34,7 +36,8 @@ Pet.prototype.growUp = function() {
     this.age += 1;
     this.hunger += 5;
     this.fitness -= 3;
-    document.getElementById("growUp").innerHTML = `I am now ${this.age} years old.`;
+    // document.getElementById("growUp").innerHTML = `I am now ${this.age} years old.`;
+    document.getElementById("growUp").innerHTML = `${this.age}`;
 };
 
 Pet.prototype.walk = function() {
@@ -62,7 +65,8 @@ Pet.prototype.feed = function() {
 Pet.prototype.checkUp = function() {
     // document.getElementById("happiness").innerHTML = "test";
     if (!this.isAlive) {
-        document.getElementById("growUp").innerHTML = 'Your pet is no longer alive :(';
+        // document.getElementById("petDead").innerHTML.style.visibility = 'visible';
+        document.getElementById("petAlive").innerHTML.style.visibility = 'hidden';
         throw new Error('Your pet is no longer alive :(');
     }
     if (this.fitness <= fitnessBreakPoint && this.hunger >= hungerBreakPoint){
