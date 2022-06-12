@@ -36,7 +36,7 @@ Pet.prototype.growUp = function() {
     this.age += 1;
     this.hunger += 5;
     this.fitness -= 3;
-    // document.getElementById("growUp").innerHTML = `I am now ${this.age} years old.`;
+    document.getElementById("petMessage").innerHTML = `I am now ${this.age} years old.`;
     document.getElementById("growUp").innerHTML = `${this.age}`;
 };
 
@@ -48,7 +48,7 @@ Pet.prototype.walk = function() {
     if (this.fitness > maxFitness){
         this.fitness = maxFitness;
     }
-    // document.getElementById("walk").innerHTML = `Thank you for walking me.`;
+    document.getElementById("petMessage").innerHTML = `Thank you for walking me.`;
 }
 
 Pet.prototype.feed = function() {
@@ -59,38 +59,50 @@ Pet.prototype.feed = function() {
     if (this.hunger < minHunger){
         this.hunger = minHunger;
     }
-    // document.getElementById("feed").innerHTML = `Thank you for feeding me.`;
+    document.getElementById("petMessage").innerHTML = `Thank you for feeding me.`;
 }
 
 Pet.prototype.checkUp = function() {
     // document.getElementById("happiness").innerHTML = "test";
+    document.getElementById("hunger").style.backgroundImage = "none";
+    document.getElementById("fitness").style.backgroundImage = "none";
+    // document.getElementById("hunger").style.backgroundSize = "cover";
     if (!this.isAlive) {
-        // document.getElementById("petDead").innerHTML.style.visibility = 'visible';
-        document.getElementById("petAlive").innerHTML.style.visibility = 'hidden';
+        document.getElementById("petDead").style.visibility = 'visible';
+        document.body.style.backgroundColor = '#B376FF';
+        document.getElementById("petAlive").style.visibility = 'hidden';
+        document.getElementById("petMessage").innerHTML = "Oh dear, I am no longer alive!"
         throw new Error('Your pet is no longer alive :(');
     }
     if (this.fitness <= fitnessBreakPoint && this.hunger >= hungerBreakPoint){
         // return 'I am hungry AND I need a walk'
-        document.getElementById("hunger").innerHTML = 'I am hungry';
-        document.getElementById("fitness").innerHTML = `I need a walk`;
+        // document.getElementById("hunger").innerHTML = 'I am hungry';
+        document.getElementById("hunger").style.backgroundImage = "url('../images/petBowl.jpg')";
+        document.getElementById("hunger").style.backgroundSize = "cover";
+        document.getElementById("fitness").style.backgroundImage = "url('../images/petUnfit.jpg')";
+        document.getElementById("fitness").style.backgroundSize = "cover";
+        // document.getElementById("fitness").innerHTML = `I need a walk`;
         console.log("walk and feed")
     }
     else if (this.fitness <= fitnessBreakPoint){
         // return 'I need a walk';
-        document.getElementById("hunger").innerHTML = 'I am full';
-        document.getElementById("fitness").innerHTML = `I need a walk`;
+        document.getElementById("fitness").style.backgroundImage = "url('../images/petUnfit.jpg')";
+        document.getElementById("fitness").style.backgroundSize = "cover";
+        // document.getElementById("hunger").innerHTML = 'I am full';
+        // document.getElementById("fitness").innerHTML = `I need a walk`;
         console.log('walk')
     }
     else if (this.hunger >= hungerBreakPoint){
         // return 'I am hungry';
-        document.getElementById("hunger").innerHTML = `I am hungry`;
-        document.getElementById("fitness").innerHTML = `I am healthy`;
+        document.getElementById("hunger").style.backgroundImage = "url('../images/petBowl.jpg')";
+        document.getElementById("hunger").style.backgroundSize = "cover";
+        // document.getElementById("fitness").innerHTML = `I am healthy`;
         console.log('feed')
     }
     else {
         // return 'I feel great!';
-        document.getElementById("hunger").innerHTML = 'I am full';
-        document.getElementById("fitness").innerHTML = 'I am healthy';
+        // document.getElementById("hunger").innerHTML = 'I am full';
+        // document.getElementById("fitness").innerHTML = 'I am healthy';
         console.log('all good')
     }
 }
