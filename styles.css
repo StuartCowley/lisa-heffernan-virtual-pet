@@ -4,6 +4,7 @@ html{
 
 body{
     background-color: #01EDFA;
+    border-top: 2rem;
 }
 
 * {
@@ -13,12 +14,13 @@ body{
 .layout{
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 5rem 10rem 10rem 10rem 2rem;
+    grid-template-rows: 5rem 10rem 10rem 10rem 5rem 2rem;
     grid-template-areas: 
         "petName petName petName"
         "growButton petPicture age"
         "feedButton petPicture hunger"
         "walkButton petPicture fitness"
+        "message message message" 
         "footer footer footer";
     /* min-height: 100vh; */
 }
@@ -57,6 +59,11 @@ body{
     grid-area: fitness;
 }
 
+.message {
+    grid-area: message;
+    text-align: center;
+}
+
 .footer {
     grid-area: footer;
 }
@@ -74,7 +81,7 @@ body{
     grid-area: holder;
 } */
 
-#createPet {
+#createPet, #petMessage {
     background-color: #FF8D08;
     border-color: black;
     border-style: solid;
@@ -88,7 +95,11 @@ body{
     grid-area: initialButton;
 } */
 
-.button {
+.button button{
+    box-shadow: 2px 2px;
+}
+
+.button{ 
     text-align: center;
 }
 
@@ -99,8 +110,24 @@ button {
 }
 
 #growUp {
-    font-size: larger;
+    font-size: 50px;
+    text-align: center;
 }
+
+button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button p {
+    display: table;
+}
+
+#ageStat > button {
+    background-image: url('./images/birthdayBackground.jpg'); 
+    background-size: cover;
+ }
 
 #walkButton > button {
     background-image: url('./images/petExercise.jpg'); 
@@ -145,27 +172,35 @@ button {
     background-color: #A29CFF;
 }
 
-#createPet {
+#createPet, #petMessage {
     padding: 1rem;
     margin: 1rem;
     width: auto;
-    height: 4rem;
+    height: 3rem;
     border-radius: 2rem;
     font-size: 1.5rem;
 }
 
-#petAlive {
-
+.petPicture {
+    padding-top:20px;
+    position: relative;
+    /* width:300px; */
 }
 
-#petDead {
+.petDeadChild {
+    position:absolute;
+    /* left:0; */
+    left: 100px;
+    top:20px;
+    text-align: center;
+    
     visibility: hidden;
 }
 
 
-.petName p {
+.petName p, .message p {
     /* padding-bottom: 4rem; */
-    margin: 1rem;
+    /* margin: 1rem; */
     font-size: 3rem;
 }
 
@@ -176,7 +211,7 @@ button {
 
 
 img {
-    width: 30vw;
+    width: 300px;
 }
 
 .stats {
