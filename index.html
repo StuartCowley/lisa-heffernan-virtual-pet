@@ -6,30 +6,42 @@
     </head>
     <body>
         <script src="./src/pet.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
         <div class="layout">
-            <header class="title">
+            <!-- <header class="title">
                 <h1>Virtual Pet</h1>
-            </header>
-            <div class="holder"></div>
-            <div class="button" id="initialButton">
+            </header> -->
+            <!-- <div class="holder"></div> -->
+            <!-- <div class="button" id="initialButton">
                 <button id="createPetButton" onclick="createPet(); pet.checkUp()">Create pet</button>
-            </div>
+            </div> -->
+
+
             <div class="button" id="growButton">
-                <button class="interactiveButton" onclick="window.pet.growUp(); pet.checkUp()">Grow up</button>  
+                <button class="interactiveButton" onclick="window.pet.growUp(); window.pet.checkUp(); confetti()"></button>  
             </div>
             <div class="button" id="feedButton">
-                <button class="interactiveButton" onclick="window.pet.feed(); pet.checkUp()">Feed</button>
+                <button class="interactiveButton" onclick="window.pet.feed(); window.pet.checkUp()"></button>
             </div>
             <div class="button" id="walkButton">
-                <button class="interactiveButton" onclick="window.pet.walk(); pet.checkUp()">Walk</button>
+                <button class="interactiveButton" onclick="window.pet.walk(); window.pet.checkUp()"></button>
             </div>
+
+
             <div class="petName">
-                <p id="createPet">pet name</p>
-                <img src="./images/virtualPet.jpg">
+                <!-- <p id="createPet">create pet</p> -->
+                <button id="createPet" onclick="createPet(); window.pet.checkUp()">Create pet</button>
+                
             </div>
+            <div class="petPicture">
+                <img id="petAlive" src="./images/virtualPet.jpg">
+                <img id="petDead" src="./images/grimReaper.jpg">
+            </div>
+
+
             <div class="stats" id="ageStat">
                 <!-- <p id="growUp">Age</p> -->
-                <button disabled class="interactiveButton" id="growUp"></button>
+                <button disabled class="interactiveButton"><p>I am</p><p id="growUp"></p><p>years old</p></button>
             </div>
             <div class="stats" id="hungerStat">
                 <!-- <p id="hunger">pet hunger</p> -->
@@ -52,6 +64,10 @@
         </div>
         <footer class="footer">
             <a href='https://www.freepik.com/vectors/dog-cartoon'>Dog cartoon vector created by catalyststuff - www.freepik.com</a>
+            <a href='https://www.freepik.com/vectors/sports-illustration'>Sports illustration vector created by catalyststuff - www.freepik.com</a>
+            <a href='https://www.freepik.com/vectors/mascot-design'>Mascot design vector created by catalyststuff - www.freepik.com</a>
+            <a href='https://www.freepik.com/vectors/cute-cat'>Cute cat vector created by catalyststuff - www.freepik.com</a>
+            <a href='https://www.freepik.com/vectors/grim'>Grim vector created by catalyststuff - www.freepik.com</a>
         </footer>
 </body>
 </html>
