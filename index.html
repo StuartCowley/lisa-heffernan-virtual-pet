@@ -8,15 +8,6 @@
         <script src="./src/pet.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
         <div class="layout">
-            <!-- <header class="title">
-                <h1>Virtual Pet</h1>
-            </header> -->
-            <!-- <div class="holder"></div> -->
-            <!-- <div class="button" id="initialButton">
-                <button id="createPetButton" onclick="createPet(); pet.checkUp()">Create pet</button>
-            </div> -->
-
-
             <div class="button" id="growButton">
                 <button class="interactiveButton" onclick="window.pet.growUp(); window.pet.checkUp(); confetti()"></button>  
             </div>
@@ -27,45 +18,29 @@
                 <button class="interactiveButton" onclick="window.pet.walk(); window.pet.checkUp()"></button>
             </div>
 
-
             <div class="petName">
-                <!-- <p id="createPet">create pet</p> -->
                 <button id="createPet" onclick="createPet(); window.pet.checkUp()">Create pet</button>
             </div>
             <div class="message">
-                <!-- <p id="createPet">create pet</p> -->
                 <button id="petMessage">virtual pet</button>
             </div>
             <div class="petPicture">
-                <!-- <div class="petAlive"> -->
                 <img id="petAlive" src="./images/virtualPet.jpg">
                 <div class="petDeadChild">
                 <img id="petDead" src="./images/grimReaper.jpg">
                 </div>
-                <!-- </div> -->
-                
             </div>
 
 
             <div class="stats" id="ageStat">
-                <!-- <p id="growUp">Age</p> -->
                 <button disabled class="interactiveButton"><p id="growUp"></p></button>
             </div>
             <div class="stats" id="hungerStat">
-                <!-- <p id="hunger">pet hunger</p> -->
                 <button disabled class="interactiveButton" id="hunger"></button>
             </div>
             <div class="stats" id="fitnessStat">
-                <!-- <p id="fitness">pet fitness</p> -->
                 <button disabled class="interactiveButton" id="fitness"></button>
             </div>
-                <!-- <p id="createPet"></p>
-                <p id="growUp"></p>
-                <p id="walk"></p>
-                <p id="feed"></p>
-                <p id="happiness"></p>
-                <button onclick="window.pet.checkUp()">Check up</button>
-                <button>Have baby</button> -->
             <!-- <footer>
                 <span>2022 Lisa Heffernan</span>
             </footer> -->

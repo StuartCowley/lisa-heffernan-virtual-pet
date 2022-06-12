@@ -11,7 +11,6 @@ function createPet(){
     const pet = new Pet(name = prompt("What shall we name your pet?", "name"));
     window.pet = pet;
     document.getElementById("createPet").innerHTML = `Hello, my name is ${pet.name}!`;
-    // document.getElementById("growUp").innerHTML = `I am ${pet.age} years old`;
     document.getElementById("growUp").innerHTML = `${pet.age}`;
 }
 
@@ -44,29 +43,39 @@ Pet.prototype.walk = function() {
     if (!this.isAlive) {
         throw new Error('Your pet is no longer alive :(');
     }
+    if (this.fitness === maxFitness){
+        document.getElementById("petMessage").innerHTML = "I don't need exercising."
+    }
+    else{
+    document.getElementById("petMessage").innerHTML = `Thank you for exercising me.`;    
+    }
     this.fitness += 4;
     if (this.fitness > maxFitness){
         this.fitness = maxFitness;
     }
-    document.getElementById("petMessage").innerHTML = `Thank you for walking me.`;
+    
 }
 
 Pet.prototype.feed = function() {
     if (!this.isAlive) {
         throw new Error('Your pet is no longer alive :(');
     }
+    if (this.hunger === minHunger){
+        document.getElementById("petMessage").innerHTML = "I don't need feeding.";
+    }
+    else {
+    document.getElementById("petMessage").innerHTML = `Thank you for feeding me.`;    
+    }
     this.hunger -= 3;
     if (this.hunger < minHunger){
         this.hunger = minHunger;
     }
-    document.getElementById("petMessage").innerHTML = `Thank you for feeding me.`;
+   
 }
 
 Pet.prototype.checkUp = function() {
-    // document.getElementById("happiness").innerHTML = "test";
     document.getElementById("hunger").style.backgroundImage = "none";
     document.getElementById("fitness").style.backgroundImage = "none";
-    // document.getElementById("hunger").style.backgroundSize = "cover";
     if (!this.isAlive) {
         document.getElementById("petDead").style.visibility = 'visible';
         document.body.style.backgroundColor = '#B376FF';
@@ -75,34 +84,23 @@ Pet.prototype.checkUp = function() {
         throw new Error('Your pet is no longer alive :(');
     }
     if (this.fitness <= fitnessBreakPoint && this.hunger >= hungerBreakPoint){
-        // return 'I am hungry AND I need a walk'
-        // document.getElementById("hunger").innerHTML = 'I am hungry';
         document.getElementById("hunger").style.backgroundImage = "url('../images/petBowl.jpg')";
         document.getElementById("hunger").style.backgroundSize = "cover";
         document.getElementById("fitness").style.backgroundImage = "url('../images/petUnfit.jpg')";
         document.getElementById("fitness").style.backgroundSize = "cover";
-        // document.getElementById("fitness").innerHTML = `I need a walk`;
         console.log("walk and feed")
     }
     else if (this.fitness <= fitnessBreakPoint){
-        // return 'I need a walk';
         document.getElementById("fitness").style.backgroundImage = "url('../images/petUnfit.jpg')";
         document.getElementById("fitness").style.backgroundSize = "cover";
-        // document.getElementById("hunger").innerHTML = 'I am full';
-        // document.getElementById("fitness").innerHTML = `I need a walk`;
         console.log('walk')
     }
     else if (this.hunger >= hungerBreakPoint){
-        // return 'I am hungry';
         document.getElementById("hunger").style.backgroundImage = "url('../images/petBowl.jpg')";
         document.getElementById("hunger").style.backgroundSize = "cover";
-        // document.getElementById("fitness").innerHTML = `I am healthy`;
         console.log('feed')
     }
     else {
-        // return 'I feel great!';
-        // document.getElementById("hunger").innerHTML = 'I am full';
-        // document.getElementById("fitness").innerHTML = 'I am healthy';
         console.log('all good')
     }
 }

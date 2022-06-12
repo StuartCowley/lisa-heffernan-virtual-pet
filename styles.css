@@ -22,7 +22,6 @@ body{
         "walkButton petPicture fitness"
         "message message message" 
         "footer footer footer";
-    /* min-height: 100vh; */
 }
 
 .petName {
@@ -67,19 +66,6 @@ body{
 .footer {
     grid-area: footer;
 }
-/* .title {
-    grid-area: title;
-    text-align: center;
-    font-size: 1rem;
-} */
-
-/* h1 {
-    margin:0;
-} */
-
-/* .holder {
-    grid-area: holder;
-} */
 
 #createPet, #petMessage {
     background-color: #FF8D08;
@@ -87,16 +73,14 @@ body{
     border-style: solid;
     border-radius: 2rem;
     border-width: 0.3rem;
-    /* width: fit-content;
-    text-align: center; */
 }
-
-/* #initialButton {
-    grid-area: initialButton;
-} */
 
 .button button{
     box-shadow: 2px 2px;
+}
+
+.button button:hover {
+    cursor: pointer;
 }
 
 .button{ 
@@ -144,14 +128,6 @@ button p {
     background-size: cover;
  }
 
-
-
-/* .buttonContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-} */
-
 .interactiveButton {
     padding: 1rem;
     margin: 1rem;
@@ -184,12 +160,10 @@ button p {
 .petPicture {
     padding-top:20px;
     position: relative;
-    /* width:300px; */
 }
 
 .petDeadChild {
     position:absolute;
-    /* left:0; */
     left: 100px;
     top:20px;
     text-align: center;
@@ -197,18 +171,9 @@ button p {
     visibility: hidden;
 }
 
-
 .petName p, .message p {
-    /* padding-bottom: 4rem; */
-    /* margin: 1rem; */
     font-size: 3rem;
 }
-
-/* #createPet {
-    margin: 0;
-} */
-
-
 
 img {
     width: 300px;
@@ -217,22 +182,3 @@ img {
 .stats {
     text-align: center;
 }
-
-
-
-/* .petInfoContainer {
-    display: flex;
-    flex-direction: column;
-} */
-
-/* .petStats {
-    grid-area: stats;
-} */
-
-/* .petStatsContainer{
-    display: flex;
-    flex-direction: column;
-} */
-
-
-
