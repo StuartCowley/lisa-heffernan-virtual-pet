@@ -2,21 +2,32 @@
 <html>
     <head>
         <title>Virtual Pet</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Orbitron&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="styles.css">     
     </head>
     <body>
         <script src="./src/pet.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
         <div class="layout">
+            <div class="buttonOuterContainer">
+                <div>
             <div class="button" id="growButton">
+                <p>Have birthday</p>
                 <button class="interactiveButton" onclick="window.pet.growUp(); window.pet.checkUp(); confetti()"></button>  
             </div>
             <div class="button" id="feedButton">
+                <p>Feed</p>
                 <button class="interactiveButton" onclick="window.pet.feed(); window.pet.checkUp()"></button>
             </div>
             <div class="button" id="walkButton">
+                <p>Exercise</p>
                 <button class="interactiveButton" onclick="window.pet.walk(); window.pet.checkUp()"></button>
             </div>
+            </div>
+            </div>
+            
 
             <div class="petName">
                 <button id="createPet" onclick="createPet(); window.pet.checkUp()">Create pet</button>
@@ -27,19 +38,31 @@
             <div class="petPicture">
                 <img id="petAlive" src="./images/virtualPet.jpg">
                 <div class="petDeadChild">
-                <img id="petDead" src="./images/grimReaper.jpg">
+                    <img id="petDead" src="./images/grimReaper.jpg">
                 </div>
+                
             </div>
 
-
+        
+            <div class="statOuterContainer">
+            <div class="statContainer">
             <div class="stats" id="ageStat">
-                <button disabled class="interactiveButton"><p id="growUp"></p></button>
+                <!-- <button disabled class="interactiveButton"><p id="growUp"></p></button> -->
+                <p>Age</p>
+                <div class="pie" id="growUp"></div>
             </div>
             <div class="stats" id="hungerStat">
-                <button disabled class="interactiveButton" id="hunger"></button>
+                <p>Hunger</p>
+                <div class="pie"></div>
+                <!-- <button disabled class="interactiveButton" id="hunger"></button> -->
             </div>
+            
             <div class="stats" id="fitnessStat">
-                <button disabled class="interactiveButton" id="fitness"></button>
+                <p>Fitness</p>
+                <div class="pie" id="ten"></div>
+                <!-- <button disabled class="interactiveButton" id="fitness"></button> -->
+            </div>
+            </div>
             </div>
             <!-- <footer>
                 <span>2022 Lisa Heffernan</span>

@@ -1,5 +1,7 @@
 html{
     font-size: 16px;
+    font-family: 'Kdam Thmor Pro', sans-serif;
+    /* font-family: 'Orbitron', sans-serif; */
 }
 
 body{
@@ -9,19 +11,22 @@ body{
 
 * {
     box-sizing: border-box;
+    font-family: 'Kdam Thmor Pro', sans-serif;
 }
 
 .layout{
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 5rem 10rem 10rem 10rem 5rem 2rem;
+    grid-template-rows: 5rem 35rem 5rem 2rem;
     grid-template-areas: 
         "petName petName petName"
-        "growButton petPicture age"
-        "feedButton petPicture hunger"
-        "walkButton petPicture fitness"
+        "buttons petPicture stats"
         "message message message" 
         "footer footer footer";
+}
+
+.buttonOuterContainer{
+    grid-area: buttons;
 }
 
 .petName {
@@ -29,35 +34,14 @@ body{
     text-align: center;
 }
 
-#growButton {
-    grid-area: growButton;
-}
-
-#feedButton {
-    grid-area: feedButton;
-}
-
-#walkButton {
-    grid-area: walkButton;
-}
-
 .petPicture {
     grid-area: petPicture;
     text-align: center;
 }
 
-#ageStat {
-    grid-area: age;
+.statOuterContainer {
+    grid-area: stats;
 }
-
-#hungerStat {
-    grid-area: hunger;
-}
-
-#fitnessStat {
-    grid-area: fitness;
-}
-
 .message {
     grid-area: message;
     text-align: center;
@@ -67,16 +51,34 @@ body{
     grid-area: footer;
 }
 
-#createPet, #petMessage {
-    background-color: #FF8D08;
-    border-color: black;
-    border-style: solid;
-    border-radius: 2rem;
-    border-width: 0.3rem;
+
+/* #growButton {
+    grid-area: growButton;
 }
 
-.button button{
-    box-shadow: 2px 2px;
+#feedButton {
+    grid-area: feedButton;
+}
+
+#walkButton {
+    grid-area: walkButton;
+} */
+
+
+
+/* #ageStat {
+    grid-area: age;
+}
+
+#hungerStat {
+    grid-area: hunger;
+}
+
+#fitnessStat {
+    grid-area: fitness;
+} */
+.button p {
+    margin:0;
 }
 
 .button button:hover {
@@ -87,19 +89,18 @@ body{
     text-align: center;
 }
 
+.button button{
+    box-shadow: 2px 2px;
+}
+
 button {
     text-decoration: none;
     color: black;
     border-color: black;
 }
 
-#growUp {
-    font-size: 50px;
-    text-align: center;
-}
-
-button {
-    display: inline-flex;
+button, pie {
+    /* display: inline-flex; */
     align-items: center;
     justify-content: center;
 }
@@ -107,11 +108,6 @@ button {
 button p {
     display: table;
 }
-
-#ageStat > button {
-    background-image: url('./images/birthdayBackground.jpg'); 
-    background-size: cover;
- }
 
 #walkButton > button {
     background-image: url('./images/petExercise.jpg'); 
@@ -128,13 +124,46 @@ button p {
     background-size: cover;
  }
 
-.interactiveButton {
+ .interactiveButton {
     padding: 1rem;
     margin: 1rem;
     width: 8rem;
     height: 8rem;
     border-radius: 50%;;
 }
+
+#createPet, #petMessage {
+    background-color: #FF8D08;
+    border-color: black;
+    border-style: solid;
+    border-radius: 2rem;
+    border-width: 0.3rem;
+}
+
+#growUp {
+    font-size: 50px;
+    text-align: center;
+}
+
+.statsContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.stats{
+    position: relative;
+}
+
+.stats p {
+    margin: 0;
+}
+
+#ageStat > pie {
+    background-image: url('./images/birthdayBackground.jpg'); 
+    background-size: cover;
+ }
+
+
 
 #ageStat button {
     background-color: #BCEFFF;
@@ -143,6 +172,34 @@ button p {
 #hungerStat button{
     background-color: #FFF59E;
 }
+
+.pie {
+    width: 8rem;
+    height: 8rem;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    align-content: center;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #FFF59E;
+    border: 2px solid black;
+    float: left;
+    margin: 0 auto;
+}
+  
+  #ten {
+    background-image: linear-gradient(126deg, transparent 50%, red 50%), linear-gradient(90deg, red 50%, transparent 50%);
+  }
+  
+  .twentyfive {
+    background-image: linear-gradient(180deg, transparent 50%, white 50%), linear-gradient(90deg, white 50%, transparent 50%);
+  }
+  
+  .fifty {
+    background-image: linear-gradient(90deg, white 50%, transparent 50%);
+  }
 
 #fitnessStat button {
     background-color: #A29CFF;
@@ -164,15 +221,15 @@ button p {
 
 .petDeadChild {
     position:absolute;
-    left: 100px;
-    top:20px;
     text-align: center;
-    
+    top:20px;
+    left:100px;
     visibility: hidden;
 }
 
 .petName p, .message p {
     font-size: 3rem;
+    font-family: 'Kdam Thmor Pro', sans-serif;
 }
 
 img {
