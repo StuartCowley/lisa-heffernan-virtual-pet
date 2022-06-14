@@ -77,9 +77,10 @@ Pet.prototype.checkUp = function() {
     document.getElementById("hunger").style.backgroundImage = "none";
     document.getElementById("fitness").style.backgroundImage = "none";
     if (!this.isAlive) {
-        document.getElementById("petDead").style.visibility = 'visible';
+        // document.getElementById("petDead").style.visibility = 'visible';
         document.body.style.backgroundColor = '#B376FF';
-        document.getElementById("petAlive").style.visibility = 'hidden';
+        // document.getElementById("petAlive").style.visibility = 'hidden';
+        document.getElementById("petAlive").src = "./images/grimReaper.jpg";
         document.getElementById("petMessage").innerHTML = "Oh dear, I am no longer alive!"
         throw new Error('Your pet is no longer alive :(');
     }
