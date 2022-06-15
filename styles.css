@@ -103,29 +103,20 @@ body{
     width: 300px;
 }
 
-.feedPetVisual {
-    visibility: hidden;
+.feedPetVisualContainer {
     position: absolute;
     top:120px;
     left:-100px;
 }
 
-#pizzaSlice {
-    width: 80px;
-    animation-duration: 1s;
-    animation-name: spin;
-    animation-timing-function: linear;
-    animation-direction: normal;
-    animation-iteration-count: 1;
-    animation-play-state: paused;
-    animation-fill-mode: forwards;
+.feedPetVisual {
+    position: relative;
 }
 
-@keyframes spin {
-    /* 0% {transform: translateX(0px) rotate(360deg);} */
-  100% {transform: translateX(290px) rotate(360deg); visibility: hidden;}
-  /* 100%{visibility: hidden;} */
-  /* 100% {transform: rotate(360deg);} */
+#pizzaSlice {
+    width: 80px;
+    position: absolute;
+    visibility: hidden;
 }
 
 .statOuterContainer {

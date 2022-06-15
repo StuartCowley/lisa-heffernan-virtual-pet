@@ -22,6 +22,24 @@ function Pet(name) {
     this.children = [];
 }
 
+function pizzaAnimation() {
+    let id = null;
+    const elem = document.getElementById("pizzaSlice");
+    elem.style.visibility = "visible";
+    let posX = 0;
+    clearInterval(id);
+    id = setInterval(frame, 5);
+    function frame() {
+      if (posX == 290) {
+        elem.style.visibility = "hidden";
+        clearInterval(id);
+      } else {
+        posX++;
+        elem.style.left = posX + 'px';
+      }
+    }
+  }
+
 Pet.prototype = {
     get isAlive() {
       return this.age < maxAge && this.hunger < maxHunger && this.fitness > minFitness;
@@ -29,7 +47,6 @@ Pet.prototype = {
 }
 
 Pet.prototype.growUp = function() {
-    document.getElementById("pizzaSlice").style.visibility = "hidden"
     if (!this.isAlive) {
         throw new Error('Your pet is no longer alive :(');
     }
@@ -41,7 +58,6 @@ Pet.prototype.growUp = function() {
 };
 
 Pet.prototype.walk = function() {
-    document.getElementById("pizzaSlice").style.visibility = "hidden"
     if (!this.isAlive) {
         throw new Error('Your pet is no longer alive :(');
     }
@@ -54,8 +70,7 @@ Pet.prototype.walk = function() {
     this.fitness += 4;
     if (this.fitness > maxFitness){
         this.fitness = maxFitness;
-    }
-    
+    }  
 }
 
 Pet.prototype.feed = function() {
@@ -66,17 +81,13 @@ Pet.prototype.feed = function() {
         document.getElementById("petMessage").innerHTML = "I don't need feeding.";
     }
     else {
-    document.getElementById("pizzaSlice").style.visibility = "visible"
-    document.getElementById("pizzaSlice").style.animationPlayState = "running"
-    // document.getElementById("pizzaSlice").style.animationIterationCount = "1"
-    
-    document.getElementById("petMessage").innerHTML = `Thank you for feeding me.`;    
+        pizzaAnimation();
+        document.getElementById("petMessage").innerHTML = `Thank you for feeding me.`;    
     }
     this.hunger -= 3;
     if (this.hunger < minHunger){
         this.hunger = minHunger;
     }
-   
 }
 
 Pet.prototype.checkUp = function() {
@@ -93,20 +104,14 @@ Pet.prototype.checkUp = function() {
         document.getElementById("hunger").style.backgroundSize = "cover";
         document.getElementById("fitness").style.backgroundImage = "url('../images/petUnfit.jpg')";
         document.getElementById("fitness").style.backgroundSize = "cover";
-        console.log("walk and feed")
     }
     else if (this.fitness <= fitnessBreakPoint){
         document.getElementById("fitness").style.backgroundImage = "url('../images/petUnfit.jpg')";
         document.getElementById("fitness").style.backgroundSize = "cover";
-        console.log('walk')
     }
     else if (this.hunger >= hungerBreakPoint){
         document.getElementById("hunger").style.backgroundImage = "url('../images/petBowl.jpg')";
         document.getElementById("hunger").style.backgroundSize = "cover";
-        console.log('feed')
-    }
-    else {
-        console.log('all good')
     }
 }
 
