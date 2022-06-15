@@ -29,6 +29,7 @@ Pet.prototype = {
 }
 
 Pet.prototype.growUp = function() {
+    document.getElementById("pizzaSlice").style.visibility = "hidden"
     if (!this.isAlive) {
         throw new Error('Your pet is no longer alive :(');
     }
@@ -40,6 +41,7 @@ Pet.prototype.growUp = function() {
 };
 
 Pet.prototype.walk = function() {
+    document.getElementById("pizzaSlice").style.visibility = "hidden"
     if (!this.isAlive) {
         throw new Error('Your pet is no longer alive :(');
     }
@@ -64,6 +66,10 @@ Pet.prototype.feed = function() {
         document.getElementById("petMessage").innerHTML = "I don't need feeding.";
     }
     else {
+    document.getElementById("pizzaSlice").style.visibility = "visible"
+    document.getElementById("pizzaSlice").style.animationPlayState = "running"
+    // document.getElementById("pizzaSlice").style.animationIterationCount = "1"
+    
     document.getElementById("petMessage").innerHTML = `Thank you for feeding me.`;    
     }
     this.hunger -= 3;
@@ -77,9 +83,7 @@ Pet.prototype.checkUp = function() {
     document.getElementById("hunger").style.backgroundImage = "none";
     document.getElementById("fitness").style.backgroundImage = "none";
     if (!this.isAlive) {
-        // document.getElementById("petDead").style.visibility = 'visible';
         document.body.style.backgroundColor = '#B376FF';
-        // document.getElementById("petAlive").style.visibility = 'hidden';
         document.getElementById("petAlive").src = "./images/grimReaper.jpg";
         document.getElementById("petMessage").innerHTML = "Oh dear, I am no longer alive!"
         throw new Error('Your pet is no longer alive :(');

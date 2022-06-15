@@ -1,120 +1,56 @@
 html{
     font-size: 16px;
+    
 }
 
 body{
     background-color: #01EDFA;
     border-top: 2rem;
+    
 }
 
 * {
     box-sizing: border-box;
+    font-family: 'Kdam Thmor Pro', sans-serif;
 }
 
 .layout{
+    margin-top: 2rem;
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 5rem 10rem 10rem 10rem 5rem 2rem;
+    grid-template-rows: 40rem 2rem;
     grid-template-areas: 
-        "petName petName petName"
-        "growButton petPicture age"
-        "feedButton petPicture hunger"
-        "walkButton petPicture fitness"
-        "message message message" 
+        "buttons petPicture stats"
         "footer footer footer";
 }
 
-.petName {
-    grid-area: petName;
-    text-align: center;
-}
-
-#growButton {
-    grid-area: growButton;
-}
-
-#feedButton {
-    grid-area: feedButton;
-}
-
-#walkButton {
-    grid-area: walkButton;
-}
-
-.petPicture {
-    grid-area: petPicture;
-    text-align: center;
-}
-
-#ageStat {
-    grid-area: age;
-}
-
-#hungerStat {
-    grid-area: hunger;
-}
-
-#fitnessStat {
-    grid-area: fitness;
-}
-
-.message {
-    grid-area: message;
-    text-align: center;
-}
-
-.footer {
-    grid-area: footer;
-}
-
-#createPet, #petMessage {
-    background-color: #FF8D08;
-    border-color: black;
-    border-style: solid;
-    border-radius: 2rem;
-    border-width: 0.3rem;
-}
-
-.button button{
-    box-shadow: 2px 2px;
-}
-
-.button button:hover {
-    cursor: pointer;
+.buttonOuterContainer {
+    grid-area: buttons;
 }
 
 .button{ 
     text-align: center;
 }
 
-button {
-    text-decoration: none;
-    color: black;
-    border-color: black;
+.button p {
+    margin:0;
 }
 
-#growUp {
-    font-size: 50px;
-    text-align: center;
+.button button{
+    box-shadow: 0 9px #999;
 }
 
-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+.button button:hover {
+    cursor: pointer;
 }
 
-button p {
-    display: table;
+.interactiveButton:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
 }
 
-#ageStat > button {
-    background-image: url('./images/birthdayBackground.jpg'); 
-    background-size: cover;
- }
-
-#walkButton > button {
-    background-image: url('./images/petExercise.jpg'); 
+#growButton > button {
+    background-image: url('./images/petBirthday.jpg'); 
     background-size: cover;
  }
 
@@ -123,21 +59,95 @@ button p {
     background-size: cover;
  }
 
- #growButton > button {
-    background-image: url('./images/petBirthday.jpg'); 
+ #walkButton > button {
+    background-image: url('./images/petExercise.jpg'); 
     background-size: cover;
  }
 
-.interactiveButton {
+.mainOuterContainer {
+    grid-area: petPicture;
+    position:relative;
+    text-align: center;
+}
+
+.mainOuterContainer div div{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.mainContainer div button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#createPet, #petMessage {
+    width: auto;
+    height: 3rem;
     padding: 1rem;
     margin: 1rem;
-    width: 8rem;
-    height: 8rem;
-    border-radius: 50%;;
+    background-color: #FF8D08;
+    border-color: black;
+    border-style: solid;
+    border-radius: 2rem;
+    border-width: 0.3rem;
+    font-size: 1.5rem;
+}
+
+.petPicture {
+    position: relative;
+    padding-top:20px;
+}
+
+#petAlive {
+    width: 300px;
+}
+
+.feedPetVisual {
+    visibility: hidden;
+    position: absolute;
+    top:120px;
+    left:-100px;
+}
+
+#pizzaSlice {
+    width: 80px;
+    animation-duration: 1s;
+    animation-name: spin;
+    animation-timing-function: linear;
+    animation-direction: normal;
+    animation-iteration-count: 1;
+    animation-play-state: paused;
+    animation-fill-mode: forwards;
+}
+
+@keyframes spin {
+    /* 0% {transform: translateX(0px) rotate(360deg);} */
+  100% {transform: translateX(290px) rotate(360deg); visibility: hidden;}
+  /* 100%{visibility: hidden;} */
+  /* 100% {transform: rotate(360deg);} */
+}
+
+.statOuterContainer {
+    grid-area: stats;
+}
+
+.stats {
+    text-align: center;
+}
+
+.stats p {
+    margin:0;
+}
+
+#growUp {
+    font-size: 50px;
+    text-align: center;
 }
 
 #ageStat button {
-    background-color: #BCEFFF;
+    background-image: url('./images/birthdayBackground.jpg'); 
+    background-size: cover;
 }
 
 #hungerStat button{
@@ -148,37 +158,24 @@ button p {
     background-color: #A29CFF;
 }
 
-#createPet, #petMessage {
+button {
+    text-decoration: none;
+    color: black;
+    border-color: black;
+}
+
+.interactiveButton, .fakeButton {
     padding: 1rem;
     margin: 1rem;
-    width: auto;
-    height: 3rem;
-    border-radius: 2rem;
-    font-size: 1.5rem;
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;;
 }
 
-.petPicture {
-    padding-top:20px;
-    position: relative;
+.footer {
+    grid-area: footer;
 }
 
-.petDeadChild {
-    position:absolute;
-    left: 100px;
-    top:20px;
-    text-align: center;
-    
-    visibility: hidden;
-}
-
-.petName p, .message p {
-    font-size: 3rem;
-}
-
-img {
-    width: 300px;
-}
-
-.stats {
+.footer div {
     text-align: center;
 }
