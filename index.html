@@ -33,18 +33,22 @@
             <div class="mainOuterContainer">
                 <div class="mainContainer">            
                     <div class="petName">
-                        <button id="createPet" onclick="createPet(); window.pet.checkUp()">Create pet</button>
+                        <button id="createPet"></button>
                     </div>
                     <div class="petPicture">
-                        <img id="petAlive" src="./images/virtualPet.jpg">
+                        <button class="petAvatar" id="dogAvatar" onclick="chooseAvatar('dog')"></button>
+                        <button class="petAvatar" id="dinosaurAvatar" onclick="chooseAvatar('dinosaur')"></button>
+                        <button class="petAvatar" id="unicornAvatar" onclick="chooseAvatar('unicorn')"></button>
+                        <img id="petAlive">
                         <div class="feedPetVisualContainer">
                             <div class="feedPetVisual">
                                 <img id="pizzaSlice" src="./images/pizzaSlice.jpg">
+                                <img id="collar" src="./images/petExercise.jpg">
                             </div>
                         </div>
                     </div>
                     <div class="message">
-                        <button id="petMessage">virtual pet</button>
+                        <button id="petMessage">virtual pet - choose your pet</button>
                     </div>
                 </div>
             </div>
@@ -81,6 +85,10 @@
                     <a href='https://www.freepik.com/vectors/weight-lifting'>Weight lifting vector created by catalyststuff - www.freepik.com</a>
                     <a href='https://www.freepik.com/vectors/sprinkles'>Sprinkles vector created by freepik - www.freepik.com</a>
                     <a href='https://www.freepik.com/vectors/pizza-cartoon'>Pizza cartoon vector created by catalyststuff - www.freepik.com</a>
+                    <a href='https://www.freepik.com/vectors/pet'>Pet vector created by catalyststuff - www.freepik.com</a>
+                    <a href='https://www.freepik.com/vectors/tyrannosaurus'>Tyrannosaurus vector created by catalyststuff - www.freepik.com</a>
+                    <a href='https://www.freepik.com/vectors/pony'>Pony vector created by catalyststuff - www.freepik.com</a>
+                    <a href="https://www.flaticon.com/free-icons/dog" title="dog icons">Dog icons created by Freepik - Flaticon</a>
                 </span>
             </div>
         </footer>

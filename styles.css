@@ -4,7 +4,7 @@ html{
 }
 
 body{
-    background-color: #01EDFA;
+    background-color: #B376FF;
     border-top: 2rem;
     
 }
@@ -41,7 +41,7 @@ body{
 }
 
 .button button:hover {
-    cursor: pointer;
+    cursor: url("./images/animal-paw-print.png"), pointer;
 }
 
 .interactiveButton:active {
@@ -94,9 +94,34 @@ body{
     font-size: 1.5rem;
 }
 
+#createPet {
+    visibility: hidden;
+}
+
 .petPicture {
     position: relative;
     padding-top:20px;
+}
+
+.petAvatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 2rem;
+}
+
+#dogAvatar {
+    background-image: url('./images/virtualPet.jpg'); 
+    background-size: cover;
+}
+
+#dinosaurAvatar {
+    background-image: url('./images/dinosaur.jpg'); 
+    background-size: cover;
+}
+
+#unicornAvatar {
+    background-image: url('./images/unicornIceLolly.jpg'); 
+    background-size: cover;
 }
 
 #petAlive {
@@ -113,10 +138,12 @@ body{
     position: relative;
 }
 
-#pizzaSlice {
+#pizzaSlice, #collar {
     width: 80px;
     position: absolute;
     visibility: hidden;
+    border-radius: 50%;
+    border: 1px solid black;
 }
 
 .statOuterContainer {
@@ -142,11 +169,11 @@ body{
 }
 
 #hungerStat button{
-    background-color: #FFF59E;
+    background-color: #66FEFF;
 }
 
 #fitnessStat button {
-    background-color: #A29CFF;
+    background-color: #7DD4FF;
 }
 
 button {
