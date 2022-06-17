@@ -14,29 +14,28 @@ function chooseAvatar(petType) {
     document.getElementById("dogAvatar").style.display = "none";
     if (petType === 'dog'){
         setAvatarPicture.src = "./images/virtualPet.jpg";
-        document.body.style.backgroundColor = "#01EDFA"
+        document.body.style.backgroundColor = "#01EDFA";
     }
     else if (petType === 'dinosaur'){
         setAvatarPicture.src = "./images/dinosaur.jpg";
-        document.body.style.backgroundColor = "#DC9AFE"
+        document.body.style.backgroundColor = "#DC9AFE";
     }
     else if (petType === 'unicorn'){
         setAvatarPicture.src = "./images/unicornIceLolly.jpg";
-        document.body.style.backgroundColor = "#37DBFF"
+        document.body.style.backgroundColor = "#37DBFF";
     }
 }
 
 function createPet(){
     let name;
     const pet = new Pet(name = prompt("Name your pet", "name"));
-    const petNameMessage = document.getElementById("createPet")
+    const petNameMessage = document.getElementById("createPet");
     window.pet = pet;
     window.pet.checkUp();
     petNameMessage.style.visibility = "visible";
     petNameMessage.innerHTML = `Hello, my name is ${pet.name}!`;
     document.getElementById("growUp").innerHTML = `${pet.age}`;
-    
-}
+};
 
 function Pet(name) {
     this.name = name;
@@ -44,51 +43,62 @@ function Pet(name) {
     this.hunger = 0;
     this.fitness = 10;
     this.children = [];
-}
+};
 
 function pizzaAnimation() {
     let id = null;
     const elem = document.getElementById("pizzaSlice");
     elem.style.visibility = "visible";
-    let posX = 0;
+    let posX = -370;
     clearInterval(id);
     id = setInterval(frame, 5);
     function frame() {
-      if (posX == 290) {
+      if (posX === -100) {
         elem.style.visibility = "hidden";
         clearInterval(id);
-      } else {
+      } 
+      else {
         posX++;
         elem.style.left = posX + 'px';
       }
     }
-}
+};
 
 function exerciseAnimation() {
     let id = null;
-    const elem = document.getElementById("collar");
-    elem.style.visibility = "visible";
-    let posX = 0;
+    const elem = document.getElementById("petAlive");
     let posY = 0;
+    let direction = 'down';
+    let counter = 0;
     clearInterval(id);
     id = setInterval(frame, 5);
     function frame() {
-      if (posX == 290) {
-        elem.style.visibility = "hidden";
-        clearInterval(id);
-      } else {
-        posX++;
-
-        elem.style.left = posX + 'px';
-      }
+        if (counter === 11)  {
+            clearInterval(id);
+        }
+        if (posY === 50){
+            direction = 'up';
+            counter++;
+        }
+        if (posY === 0){
+            direction = 'down';
+            counter++;
+        }
+        if(direction === 'down'){
+        posY++;
+        }
+        else if (direction === 'up'){
+            posY--;
+        }
+        elem.style.top = posY + 'px';
     }
-}
+};
 
 Pet.prototype = {
     get isAlive() {
       return this.age < maxAge && this.hunger < maxHunger && this.fitness > minFitness;
     }
-}
+};
 
 Pet.prototype.growUp = function() {
     if (!this.isAlive) {
@@ -107,7 +117,7 @@ Pet.prototype.walk = function() {
         throw new Error('Your pet is no longer alive :(');
     }
     if (this.fitness === maxFitness){
-        newPetMessage.innerHTML = "I don't need exercising."
+        newPetMessage.innerHTML = "I don't need exercising.";
     }
     else{
         exerciseAnimation();
@@ -117,7 +127,7 @@ Pet.prototype.walk = function() {
     if (this.fitness > maxFitness){
         this.fitness = maxFitness;
     }  
-}
+};
 
 Pet.prototype.feed = function() {
     const newPetMessage = document.getElementById("petMessage");
@@ -135,7 +145,7 @@ Pet.prototype.feed = function() {
     if (this.hunger < minHunger){
         this.hunger = minHunger;
     }
-}
+};
 
 Pet.prototype.checkUp = function() {
     const hungerStatusPicture = document.getElementById("hunger");
@@ -145,7 +155,7 @@ Pet.prototype.checkUp = function() {
     if (!this.isAlive) {
         document.body.style.backgroundColor = '#B376FF';
         document.getElementById("petAlive").src = "./images/grimReaper.jpg";
-        document.getElementById("petMessage").innerHTML = "Oh dear, I am no longer alive!"
+        document.getElementById("petMessage").innerHTML = "Oh dear, I am no longer alive!";
         throw new Error('Your pet is no longer alive :(');
     }
     if (this.fitness <= fitnessBreakPoint && this.hunger >= hungerBreakPoint){
@@ -162,12 +172,11 @@ Pet.prototype.checkUp = function() {
         hungerStatusPicture.style.backgroundImage = "url('../images/petBowl.jpg')";
         hungerStatusPicture.style.backgroundSize = "cover";
     }
-}
+};
 
 Pet.prototype.haveBaby = function(babyName) {
     const child = new Pet(babyName);
-
     this.children.push(child);
-}
+};
 
 module.exports = Pet;
