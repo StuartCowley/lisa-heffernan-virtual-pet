@@ -37,7 +37,7 @@ body{
 }
 
 .button button, .petAvatar{
-    box-shadow: 0 9px #999;
+    box-shadow: 0 9px #666;
 }
 
 .button button:hover {
@@ -45,7 +45,7 @@ body{
 }
 
 .interactiveButton:active, .petAvatar:active {
-    box-shadow: 0 5px #666;
+    box-shadow: 0 5px black;
     transform: translateY(4px);
 }
 
